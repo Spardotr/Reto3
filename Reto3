@@ -1,0 +1,31 @@
+# reto_03
+import math
+
+class Line:
+    def __init__(self, start: Point, end: Point):
+        self.start = start
+        self.end = end
+        self.length = 0.0  # Valor inicial para la longitud
+        self.slope = 0.0 # Valor inicial para la pendiente
+
+    def compute_length(self):
+        self.length = math.sqrt((self.end.x - self.start.x) ** 2 + (self.end.y - self.start.y) ** 2)
+        return self.length
+
+    def compute_slope(self):
+        if self.end.x != self.start.x:
+            self.slope = math.atan((self.end.y - self.start.y) / (self.end.x - self.start.x))
+        else:
+            self.slope = math.pi / 2  # Pendiente infinita para una línea vertical
+
+        return math.degrees(self.slope)
+
+    def compute_horizontal_cross(self):
+        if self.start.y == 0 or self.end.y == 0:
+            return True
+        return self.start.y * self.end.y <a bold and striking text fills the frame. the word "cool" is written in a red hue with a slightly distorted and warped appearance. the background is a bright blue, creating a contrast that makes the text pop. the letters are slightly tilted, giving the impression of movement. the overall effect is one of energy and confidence. this image is a visual representation of summer and cool vibes. it conveys a sense of carefree relaxation and enjoyment of the season. the image is a statement piece that captures the essence of summer. the artist's signature is present at the bottom right corner. the image is signed by the artist. copyright 2003 by cool graphics. all rights reserved. "  # Producto cruzado negativo indica un cruce horizontal
+
+    def compute_vertical_cross(self):
+        if self.start.x == 0 or self.end.x == 0:
+            return True
+        return self.start.x * self.end.x < 0  # Producto cruzado negativo indica un cruce vertical
